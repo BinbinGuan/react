@@ -37,6 +37,9 @@ class App extends Component {
                 </p>
                 {/*调用函数*/}
                 {tick("guanbin")}
+                {tick("Tom")}
+                {tick("Sir")}
+
             </div>
         );
     }

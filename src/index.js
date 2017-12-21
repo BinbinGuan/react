@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import Test from './component/test.js';
+import Clock from './component/Clock.js';
 
 import registerServiceWorker from './registerServiceWorker';
 
@@ -52,17 +53,19 @@ function tick(name) {
     );
     ReactDOM.render(elementOne, document.getElementById('root'));
 }
+
 // setInterval(tick,1000,"guanbin");
 function test() {
-    ReactDOM.render(<App />, document.getElementById('root'));
+    ReactDOM.render(<App/>, document.getElementById('root'));
 }
 
 function test1() {
-    ReactDOM.render(<Test name={"GuanBin,haha"}/>,document.getElementById('root'))
+    ReactDOM.render(<Test name={"GuanBin,haha"}/>, document.getElementById('root'))
 }
 
+ReactDOM.render(<Clock/>, document.getElementById('root'));
 //ReactDom只渲染一次，所以要调用setInterval来进行不时的刷新
-setInterval(test1,1000);
+// setInterval(test, 1000);
 
 //render中第一个元素可以是常量，可以是函数，也可以是组件；
 registerServiceWorker();
