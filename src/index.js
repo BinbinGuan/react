@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Condition from './component/Condition.js';
 import Test from './component/test.js';
 import Clock from './component/Clock.js';
 
@@ -11,12 +12,30 @@ function formatName(user) {
     return user.firstName + '' + user.lastName;
 }
 
+
+
 function getGreeting(user) {
     if (user) {
         return <h1>Hello ,{formatName(user)}!</h1>;
     } else {
         return <h1>Hello ,Stranger!</h1>;
     }
+}
+
+function UserGreeting(props) {
+    return <h1>Welcome back!</h1>;
+}
+
+function GuestGreeting(props) {
+    return <h1>Please sign up.</h1>;
+}
+
+function Greeting(props) {
+    const isLoggedIn = props.isLoggedIn;
+    if (isLoggedIn) {
+        return <UserGreeting/>;
+    }
+    return <GuestGreeting/>
 }
 
 const user = {
@@ -63,7 +82,8 @@ function test1() {
     ReactDOM.render(<Test name={"GuanBin,haha"}/>, document.getElementById('root'))
 }
 
-ReactDOM.render(<Clock/>, document.getElementById('root'));
+// ReactDOM.render(<Clock/>, document.getElementById('root'));
+ReactDOM.render(<Greeting isLoggedIn={false}/>, document.getElementById('root'));
 //ReactDom只渲染一次，所以要调用setInterval来进行不时的刷新
 // setInterval(test, 1000);
 
